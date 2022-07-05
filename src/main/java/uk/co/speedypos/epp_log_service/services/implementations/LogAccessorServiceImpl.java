@@ -47,4 +47,5 @@ public class LogAccessorServiceImpl implements LogAccessorService {
         return Optional.empty();
 
     }
+
 }
