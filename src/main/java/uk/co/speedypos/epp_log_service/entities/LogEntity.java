@@ -22,8 +22,8 @@ public class LogEntity extends BaseEntity {
     @Column(name = "message", nullable = false, updatable = false)
     private String message;
 
-    @Column(name = "log_type", nullable = false, updatable = false)
+    @Column(name = "type", nullable = false, updatable = false)
     @Enumerated(EnumType.STRING)
-    private LogType logType;
+    private LogType type;
 
 }

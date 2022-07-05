@@ -1,5 +1,6 @@
-package uk.co.speedypos.epp_log_service.dtos;
+package uk.co.speedypos.epp_log_service.models.response.outgoing.internal;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,8 +8,10 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import static uk.co.speedypos.epp_log_service.consts.Regex.LOCAL_DATE_TIME_RESPONSE_PATTERN;
+
 /**
- * Parent class for all DTOs.
+ * Base response model for all UI models.
  *
  * <p>
  * <b>Important:</b> This is shared by all microservices.<br/><br/>
@@ -28,11 +31,13 @@ import java.util.UUID;
  */
 @Setter
 @Getter
-public abstract class BaseEntityDto implements Serializable {
+public abstract class BaseOutgoingInternalResponse implements Serializable {
 
     private Long id;
+
     private UUID uuid;
+
+    @JsonFormat(pattern = LOCAL_DATE_TIME_RESPONSE_PATTERN)
     private LocalDateTime createdDate;
 
 }
-

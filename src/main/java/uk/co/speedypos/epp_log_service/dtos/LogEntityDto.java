@@ -17,6 +17,6 @@ import uk.co.speedypos.epp_log_service.enums.LogType;
 public class LogEntityDto extends BaseEntityDto {
 
     private String message;
-    private LogType logType;
+    private LogType type;
 
 }

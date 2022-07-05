@@ -12,13 +12,15 @@ import java.util.UUID;
  * Entity class for all entities.
  *
  * <p>
- * <b>Important:</b> This class will be used for all microservices. <br>
- * <b>Exclude some fields from the entity:</b> <br>
- * - lastModifiedDate <br>
- * - totalModified <br>
- * - isTrashed <br>
- * - trashedDate <br>
- * </p>
+ * <b>Important:</b> This is shared by all microservices.<br/><br/>
+ *
+ * <b>Exclude some fields:</b>
+ * <ul>
+ *     <li>lastModifiedDate</li>
+ *     <li>totalModified</li>
+ *     <li>isTrashed</li>
+ *     <li>trashedDate</li>
+ * </ul>
  *
  * @author Supto Purakayasto
  * @version 1.0

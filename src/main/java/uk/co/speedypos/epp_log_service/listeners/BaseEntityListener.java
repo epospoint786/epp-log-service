@@ -11,7 +11,7 @@ import java.util.UUID;
  * Base entity listener class for all entities.
  *
  * <p>
- * <b>Important:</b> This class will be used for all microservices. <br>
+ * <b>Important:</b> This is shared by all microservices.<br/><br/>
  * </p>
  *
  * @author Supto Purakayasto
@@ -111,4 +111,5 @@ public class BaseEntityListener {
         // do nothing
 
     }
+
 }
