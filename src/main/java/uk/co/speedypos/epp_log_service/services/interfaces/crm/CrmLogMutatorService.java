@@ -23,7 +23,7 @@ public interface CrmLogMutatorService {
      * @throws EntityCreateException Thrown when any exception occurs during the creation of a crm log.
      * @since 1.0
      */
-    CrmLogEntityDto createLog(CrmLogEntityDto crmLogEntityDto) throws EntityCreateException;
+    CrmLogEntityDto createCrmLog(CrmLogEntityDto crmLogEntityDto) throws EntityCreateException;
 
     /**
      * Update an existing crm log.
@@ -33,7 +33,7 @@ public interface CrmLogMutatorService {
      * @throws EntityUpdateException Thrown when any exception occurs during the update of a crm log.
      * @since 1.0
      */
-    CrmLogEntityDto updateLog(CrmLogEntityDto crmLogEntityDto) throws EntityUpdateException;
+    CrmLogEntityDto updateCrmLog(CrmLogEntityDto crmLogEntityDto) throws EntityUpdateException;
 
     /**
      * Delete an existing crm log.
@@ -43,6 +43,6 @@ public interface CrmLogMutatorService {
      * @throws EntityDeleteException Thrown when any exception occurs during the deletion of a crm log.
      * @since 1.0
      */
-    CrmLogEntityDto deleteLog(CrmLogEntityDto crmLogEntityDto) throws EntityDeleteException;
+    CrmLogEntityDto deleteCrmLog(CrmLogEntityDto crmLogEntityDto) throws EntityDeleteException;
 
 }

@@ -4,7 +4,7 @@ package uk.co.speedypos.epp_log_service.enums;
  * LogType enum.
  *
  * <p>
- *     <b>Important:</b> This is shared by all microservices.
+ * <b>Important:</b> This is shared by all microservices.
  * </p>
  *
  * @author Supto Purakayasto
@@ -15,6 +15,18 @@ public enum LogType {
 
     SUCCESS,
     ERROR,
-    INFO
+    INFO;
+
+    /**
+     * Get random LogType (only for testing purpose).
+     *
+     * @return LogType random LogType
+     * @since 1.0
+     */
+    public static LogType getRandom() {
+
+        return values()[(int) (Math.random() * values().length)];
+
+    }
 
 }

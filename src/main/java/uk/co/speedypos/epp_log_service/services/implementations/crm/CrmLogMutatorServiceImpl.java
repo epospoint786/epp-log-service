@@ -23,19 +23,33 @@ public class CrmLogMutatorServiceImpl implements CrmLogMutatorService {
     private final CrmLogEntityRepository crmLogEntityRepository;
 
     @Override
-    public CrmLogEntityDto createLog(CrmLogEntityDto crmLogEntityDto) throws EntityCreateException {
+    public CrmLogEntityDto createCrmLog(CrmLogEntityDto crmLogEntityDto) throws EntityCreateException {
+
+        // Try to create the crm log.
+        try {
+
+            // Call save method of CrmLogEntityRepository to create the crm log.
+            var crmLogEntity = crmLogEntityRepository.save(crmLogEntityDto.toEntity());
+
+            // Return the created crm log.
+            return crmLogEntity.toDto();
+        }
+
+        // Catch any Exception.
+        catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public CrmLogEntityDto updateCrmLog(CrmLogEntityDto crmLogEntityDto) throws EntityUpdateException {
         // todo: will be implemented in the future
         return null;
     }
 
     @Override
-    public CrmLogEntityDto updateLog(CrmLogEntityDto crmLogEntityDto) throws EntityUpdateException {
-        // todo: will be implemented in the future
-        return null;
-    }
-
-    @Override
-    public CrmLogEntityDto deleteLog(CrmLogEntityDto crmLogEntityDto) throws EntityDeleteException {
+    public CrmLogEntityDto deleteCrmLog(CrmLogEntityDto crmLogEntityDto) throws EntityDeleteException {
         // todo: will be implemented in the future
         return null;
     }
