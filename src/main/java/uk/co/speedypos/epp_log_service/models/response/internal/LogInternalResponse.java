@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.models.response.outgoing.internal;
+package uk.co.speedypos.epp_log_service.models.response.internal;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -16,7 +16,7 @@ import uk.co.speedypos.epp_log_service.enums.LogType;
 @Setter
 @Getter
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class LogOutgoingInternalResponse extends BaseOutgoingInternalResponse {
+public class LogInternalResponse extends BaseInternalResponse {
 
     private String message;
     private LogType type;

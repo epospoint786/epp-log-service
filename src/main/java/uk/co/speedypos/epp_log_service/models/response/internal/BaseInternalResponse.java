@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.models.response.outgoing.internal;
+package uk.co.speedypos.epp_log_service.models.response.internal;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -31,7 +31,7 @@ import static uk.co.speedypos.epp_log_service.consts.Regex.LOCAL_DATE_TIME_RESPO
  */
 @Setter
 @Getter
-public abstract class BaseOutgoingInternalResponse implements Serializable {
+public abstract class BaseInternalResponse implements Serializable {
 
     private Long id;
 
