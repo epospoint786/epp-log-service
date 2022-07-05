@@ -3,6 +3,7 @@ package uk.co.speedypos.epp_log_service.entities;
 import lombok.Getter;
 import lombok.Setter;
 import uk.co.speedypos.epp_log_service.enums.LogType;
+import uk.co.speedypos.epp_log_service.enums.UserType;
 
 import javax.persistence.*;
 
@@ -22,8 +23,15 @@ public class LogEntity extends BaseEntity {
     @Column(name = "message", nullable = false, updatable = false)
     private String message;
 
-    @Column(name = "type", nullable = false, updatable = false)
+    @Column(name = "log_type", nullable = false, updatable = false)
     @Enumerated(EnumType.STRING)
-    private LogType type;
+    private LogType logType;
+
+    @Column(name = "user_type", nullable = false, updatable = false)
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
+
+    @Column(name = "user_id", nullable = false, updatable = false)
+    private Long userId;
 
 }

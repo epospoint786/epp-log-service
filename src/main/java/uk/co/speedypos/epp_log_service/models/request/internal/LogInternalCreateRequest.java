@@ -3,6 +3,7 @@ package uk.co.speedypos.epp_log_service.models.request.internal;
 import lombok.Getter;
 import lombok.Setter;
 import uk.co.speedypos.epp_log_service.enums.LogType;
+import uk.co.speedypos.epp_log_service.enums.UserType;
 
 /**
  * Request body for internal create log request.
@@ -16,6 +17,8 @@ import uk.co.speedypos.epp_log_service.enums.LogType;
 public class LogInternalCreateRequest {
 
     private String message;
-    private LogType type;
+    private LogType logType;
+    private UserType userType;
+    private Long userId;
 
 }
