@@ -1,12 +1,12 @@
-package uk.co.speedypos.epp_log_service.models.request.internal;
+package uk.co.speedypos.epp_log_service.dtos;
+
 
 import lombok.Getter;
 import lombok.Setter;
 import uk.co.speedypos.epp_log_service.enums.LogType;
-import uk.co.speedypos.epp_log_service.enums.UserType;
 
 /**
- * Request body for internal create log request.
+ * Responsible for transfer data between CRM log controllers and services layer.
  *
  * @author Supto Purakayasto
  * @version 1.0
@@ -14,11 +14,10 @@ import uk.co.speedypos.epp_log_service.enums.UserType;
  */
 @Setter
 @Getter
-public class LogInternalCreateRequest {
+public class CrmLogEntityDto extends BaseEntityDto {
 
     private String message;
     private LogType logType;
-    private UserType userType;
     private Long userId;
 
 }

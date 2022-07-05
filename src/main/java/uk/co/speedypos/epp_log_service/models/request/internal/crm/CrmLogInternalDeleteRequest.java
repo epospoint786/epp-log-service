@@ -1,14 +1,13 @@
-package uk.co.speedypos.epp_log_service.models.request.internal;
+package uk.co.speedypos.epp_log_service.models.request.internal.crm;
 
 import lombok.Getter;
 import lombok.Setter;
 import uk.co.speedypos.epp_log_service.enums.LogType;
-import uk.co.speedypos.epp_log_service.enums.UserType;
 
 import java.util.UUID;
 
 /**
- * Request body for internal update log request.
+ * Request body for internal delete crm log request.
  *
  * @author Supto Purakayasto
  * @version 1.0
@@ -16,13 +15,11 @@ import java.util.UUID;
  */
 @Setter
 @Getter
-public class LogInternalUpdateRequest {
+public class CrmLogInternalDeleteRequest {
 
     private Long id;
     private UUID uuid;
-    private String message;
     private LogType logType;
-    private UserType userType;
     private Long userId;
 
 }
