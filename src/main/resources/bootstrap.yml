@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: "epp-log-service"
+  cloud:
+    config:
+      profile: "dev"
+      name: "epp-log-service"
