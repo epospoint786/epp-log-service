@@ -14,15 +14,7 @@ import static uk.co.speedypos.epp_log_service.consts.Regex.LOCAL_DATE_TIME_RESPO
  * Base response model for all UI models.
  *
  * <p>
- * <b>Important:</b> This is shared by all microservices.<br/><br/>
- *
- * <b>Exclude some fields:</b>
- *     <ul>
- *         <li>lastModifiedDate</li>
- *         <li>totalModified</li>
- *         <li>isTrashed</li>
- *         <li>trashedDate</li>
- *     </ul>
+ *  <strong>Important:</strong> This is shared by all microservices
  * </p>
  *
  * @author Supto Purakayasto
@@ -39,5 +31,16 @@ public abstract class BaseInternalResponse implements Serializable {
 
     @JsonFormat(pattern = LOCAL_DATE_TIME_RESPONSE_PATTERN)
     private LocalDateTime createdDate;
+
+    @JsonFormat(pattern = LOCAL_DATE_TIME_RESPONSE_PATTERN)
+    private LocalDateTime lastModifiedDate;
+
+    @JsonFormat(pattern = LOCAL_DATE_TIME_RESPONSE_PATTERN)
+    private Long totalModified;
+
+    private Boolean isTrashed;
+
+    @JsonFormat(pattern = LOCAL_DATE_TIME_RESPONSE_PATTERN)
+    private LocalDateTime trashedDate;
 
 }

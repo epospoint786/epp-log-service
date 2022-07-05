@@ -11,15 +11,7 @@ import java.util.UUID;
  * Parent class for all DTOs.
  *
  * <p>
- * <b>Important:</b> This is shared by all microservices.<br/><br/>
- *
- * <b>Exclude some fields:</b>
- *     <ul>
- *         <li>lastModifiedDate</li>
- *         <li>totalModified</li>
- *         <li>isTrashed</li>
- *         <li>trashedDate</li>
- *     </ul>
+ *  <strong>Important:</strong> This is shared by all microservices
  * </p>
  *
  * @author Supto Purakayasto
@@ -33,6 +25,10 @@ public abstract class BaseEntityDto implements Serializable {
     private Long id;
     private UUID uuid;
     private LocalDateTime createdDate;
+    private LocalDateTime lastModifiedDate;
+    private Long totalModified;
+    private Boolean isTrashed;
+    private LocalDateTime trashedDate;
 
 }
 

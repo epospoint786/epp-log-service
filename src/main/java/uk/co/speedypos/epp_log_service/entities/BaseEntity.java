@@ -12,15 +12,8 @@ import java.util.UUID;
  * Entity class for all entities.
  *
  * <p>
- * <b>Important:</b> This is shared by all microservices.<br/><br/>
- *
- * <b>Exclude some fields:</b>
- * <ul>
- *     <li>lastModifiedDate</li>
- *     <li>totalModified</li>
- *     <li>isTrashed</li>
- *     <li>trashedDate</li>
- * </ul>
+ *  <strong>Important:</strong> This is shared by all microservices.
+ * </p>
  *
  * @author Supto Purakayasto
  * @version 1.0
@@ -43,5 +36,17 @@ public abstract class BaseEntity {
 
     @Column(name = "created_date", nullable = false, updatable = false)
     private LocalDateTime createdDate;
+
+    @Column(name = "last_modified_date")
+    private LocalDateTime lastModifiedDate;
+
+    @Column(name = "total_modified", nullable = false)
+    private Long totalModified;
+
+    @Column(name = "is_trashed", nullable = false)
+    private Boolean isTrashed;
+
+    @Column(name = "trashed_date")
+    private LocalDateTime trashedDate;
 
 }

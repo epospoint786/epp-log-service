@@ -11,7 +11,7 @@ import java.util.UUID;
  * Base entity listener class for all entities.
  *
  * <p>
- * <b>Important:</b> This is shared by all microservices.<br/><br/>
+ *     <b>Important:</b> This class will be used for all microservices.
  * </p>
  *
  * @author Supto Purakayasto
@@ -31,6 +31,8 @@ public class BaseEntityListener {
 
         baseEntity.setUuid(UUID.randomUUID());
         baseEntity.setCreatedDate(LocalDateTime.now());
+        baseEntity.setTotalModified(0L);
+        baseEntity.setIsTrashed(false);
 
     }
 
@@ -43,7 +45,13 @@ public class BaseEntityListener {
     @PreUpdate
     public void preUpdate(BaseEntity baseEntity) {
 
-        // do nothing
+        baseEntity.setLastModifiedDate(LocalDateTime.now());
+        baseEntity.setTotalModified(baseEntity.getTotalModified() + 1);
+
+        // Set trashedDate
+        if (baseEntity.getIsTrashed() && baseEntity.getTrashedDate() == null) {
+            baseEntity.setTrashedDate(LocalDateTime.now());
+        }
 
     }
 
@@ -111,5 +119,4 @@ public class BaseEntityListener {
         // do nothing
 
     }
-
 }
