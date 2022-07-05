@@ -18,7 +18,11 @@ public enum LogType {
     INFO;
 
     /**
-     * Get random LogType (only for testing purpose).
+     * Get random LogType.
+     *
+     * <p>
+     * <strong>Note:</strong> Only used for testing.
+     * </p>
      *
      * @return LogType random LogType
      * @since 1.0
