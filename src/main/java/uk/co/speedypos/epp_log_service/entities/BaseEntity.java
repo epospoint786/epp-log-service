@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
- * Shared base class for all entities.
+ * Entity class for all entities.
  *
  * <p>
  * <b>Important:</b> This class will be used for all microservices. <br>
