@@ -7,7 +7,7 @@ import uk.co.speedypos.epp_log_service.exceptions.entities.EntityDeleteException
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityUpdateException;
 
 /**
- * Core interface for {@link LogEntity} mutating operations.
+ * Core interface for {@link LogEntity} mutation operations.
  *
  * @author Supto Purakayasto
  * @version 1.0
@@ -23,7 +23,7 @@ public interface LogMutatorService {
      * @throws EntityCreateException Thrown when any exception occurs during the creation of a log.
      * @since 1.0
      */
-    LogEntityDto createLog(LogEntity logEntityDto) throws EntityCreateException;
+    LogEntityDto createLog(LogEntityDto logEntityDto) throws EntityCreateException;
 
     /**
      * Update an existing log.
@@ -33,7 +33,7 @@ public interface LogMutatorService {
      * @throws EntityUpdateException Thrown when any exception occurs during the update of a log.
      * @since 1.0
      */
-    LogEntityDto updateLog(LogEntity logEntityDto) throws EntityUpdateException;
+    LogEntityDto updateLog(LogEntityDto logEntityDto) throws EntityUpdateException;
 
     /**
      * Delete an existing log.
@@ -43,6 +43,6 @@ public interface LogMutatorService {
      * @throws EntityDeleteException Thrown when any exception occurs during the deletion of a log.
      * @since 1.0
      */
-    LogEntityDto deleteLog(LogEntity logEntityDto) throws EntityDeleteException;
+    LogEntityDto deleteLog(LogEntityDto logEntityDto) throws EntityDeleteException;
 
 }

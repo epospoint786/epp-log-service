@@ -3,7 +3,6 @@ package uk.co.speedypos.epp_log_service.services.implementations;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uk.co.speedypos.epp_log_service.dtos.LogEntityDto;
-import uk.co.speedypos.epp_log_service.entities.LogEntity;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityCreateException;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityDeleteException;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityUpdateException;
@@ -24,19 +23,19 @@ public class LogMutatorServiceImpl implements LogMutatorService {
     private final LogEntityRepository logEntityRepository;
 
     @Override
-    public LogEntityDto createLog(LogEntity logEntityDto) throws EntityCreateException {
+    public LogEntityDto createLog(LogEntityDto logEntityDto) throws EntityCreateException {
         // todo: will be implemented in the future
         return null;
     }
 
     @Override
-    public LogEntityDto updateLog(LogEntity logEntityDto) throws EntityUpdateException {
+    public LogEntityDto updateLog(LogEntityDto logEntityDto) throws EntityUpdateException {
         // todo: will be implemented in the future
         return null;
     }
 
     @Override
-    public LogEntityDto deleteLog(LogEntity logEntityDto) throws EntityDeleteException {
+    public LogEntityDto deleteLog(LogEntityDto logEntityDto) throws EntityDeleteException {
         // todo: will be implemented in the future
         return null;
     }
