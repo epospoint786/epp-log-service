@@ -10,7 +10,7 @@ import uk.co.speedypos.epp_log_service.exceptions.entities.EntityFoundException;
 import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
 /**
  * Core interface for handling crm log internal accessing requests.
@@ -26,32 +26,33 @@ public interface CrmLogInternalAccessorController {
     /**
      * Get all crm logs.
      *
-     * @return ResponseEntity List of {@link CrmLogInternalResponse}
+     * @return List of {@link CrmLogInternalResponse} as ResponseEntity.
      * @throws EntityFoundException Thrown when any exception occurs during the handling of internal get all crm logs request.
      * @since 1.0
      */
     @GetMapping
-    ResponseEntity<List<CrmLogInternalResponse>> getAllCrmLogs() throws EntityFoundException;
+    ResponseEntity<List<CrmLogInternalResponse>> getCrmLogs() throws EntityFoundException;
+
+    /**
+     * Get all crm logs by user id.
+     *
+     * @param userId User id.
+     * @return List of {@link CrmLogInternalResponse} as ResponseEntity.
+     * @throws EntityFoundException Thrown when any exception occurs during the handling of internal get all crm user logs request.
+     * @since 1.0
+     */
+    @GetMapping("/user/{userId}")
+    ResponseEntity<List<CrmLogInternalResponse>> getCrmLogsByUserId(@PathVariable Long userId) throws EntityFoundException;
 
     /**
      * Get crm log by its id.
      *
      * @param id (@PathVariable Long) This is the id of the crm log that is going to be retrieved.
-     * @return ResponseEntity {@link CrmLogInternalResponse}
+     * @return {@link CrmLogInternalResponse} object as ResponseEntity.
      * @throws EntityFoundException Thrown when any exception occurs during the handling of internal get crm log by id request.
      * @since 1.0
      */
     @GetMapping("/{id}")
-    ResponseEntity<CrmLogInternalResponse> getCrmLog(@PathVariable Long id) throws EntityFoundException;
-
-    /**
-     * Get crm logs by its UUID.
-     *
-     * @param uuid (@PathVariable UUID) This is the UUID of the crm log that is going to be retrieved.
-     * @return ResponseEntity {@link CrmLogInternalResponse}
-     * @throws EntityFoundException Thrown when any exception occurs during the handling of internal get crm log by UUID request.
-     */
-    @GetMapping("/{uuid}")
-    ResponseEntity<CrmLogInternalResponse> getCrmLog(@PathVariable UUID uuid) throws EntityFoundException;
+    ResponseEntity<Optional<CrmLogInternalResponse>> getCrmLogById(@PathVariable Long id) throws EntityFoundException;
 
 }

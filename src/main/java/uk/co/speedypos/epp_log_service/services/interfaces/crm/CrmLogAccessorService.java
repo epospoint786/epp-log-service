@@ -24,7 +24,16 @@ public interface CrmLogAccessorService {
      * @throws EntityFoundException Thrown when any exception occurs during the retrieval list of crm logs.
      * @since 1.0
      */
-    List<CrmLogEntityDto> getAllCrmLogs() throws EntityFoundException;
+    List<CrmLogEntityDto> getCrmLogs() throws EntityFoundException;
+
+    /**
+     * Get all crm logs by user id.
+     *
+     * @param userId User id.
+     * @return List of {@link CrmLogEntityDto} objects.
+     * @throws EntityFoundException Thrown when any exception occurs during the retrieval list of crm user logs.
+     */
+    List<CrmLogEntityDto> getCrmLogs(Long userId) throws EntityFoundException;
 
     /**
      * Get a crm log by its id.
@@ -38,6 +47,7 @@ public interface CrmLogAccessorService {
 
     /**
      * Get a crm log by its Uuid.
+     *
      * @param uuid (UUID) This is the UUID of the crm log that is going to be retrieved.
      * @return The Optional of {@link CrmLogEntityDto} object.
      * @throws EntityFoundException Thrown when any exception occurs during the retrieval of a crm log.
