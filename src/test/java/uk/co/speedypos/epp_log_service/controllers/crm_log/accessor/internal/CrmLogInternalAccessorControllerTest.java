@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.controllers.implementations;
+package uk.co.speedypos.epp_log_service.controllers.crm_log.accessor.internal;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,11 +10,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.co.speedypos.epp_log_service.consts.ApiPath;
+import uk.co.speedypos.epp_log_service.controllers.accessor.internal.CrmLogInternalAccessorController;
+import uk.co.speedypos.epp_log_service.controllers.accessor.internal.CrmLogInternalAccessorControllerImpl;
 import uk.co.speedypos.epp_log_service.dtos.CrmLogEntityDto;
 import uk.co.speedypos.epp_log_service.enums.LogType;
 import uk.co.speedypos.epp_log_service.helpers.MapperHelper;
 import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
-import uk.co.speedypos.epp_log_service.services.interfaces.crm.CrmLogAccessorService;
+import uk.co.speedypos.epp_log_service.services.crm_log.accessor.CrmLogAccessorService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -35,10 +37,10 @@ import static uk.co.speedypos.epp_log_service.consts.Regex.LOCAL_DATE_TIME_RESPO
  * @version 1.0
  * @since 1.0
  */
-@WebMvcTest(CrmLogInternalAccessorControllerImpl.class)
+@WebMvcTest(CrmLogInternalAccessorController.class)
 @AutoConfigureMockMvc(addFilters = false)
 @DisplayName("Test crm log internal accessor endpoints" + ApiPath.CRM_LOG_INTERNAL_REST_PATH)
-class CrmLogInternalAccessorControllerImplTest {
+class CrmLogInternalAccessorControllerTest {
 
     @MockBean
     private CrmLogAccessorService crmLogAccessorService;
@@ -117,7 +119,7 @@ class CrmLogInternalAccessorControllerImplTest {
     void getCrmLogsByUserId() throws Exception {
 
         // Mock crmLogAccessorService.getCrmLogs(Long userId) method to return list of CrmLogEntityDto.
-        when(crmLogAccessorService.getCrmLogs(anyLong())).thenReturn(List.of(crmLogEntityDto));
+        when(crmLogAccessorService.getCrmLogsByUserId(anyLong())).thenReturn(List.of(crmLogEntityDto));
 
         // Send GET request.
         mockMvc.perform(get(ApiPath.CRM_LOG_INTERNAL_REST_PATH + "/user/1").accept(MediaType.APPLICATION_JSON))
@@ -146,7 +148,7 @@ class CrmLogInternalAccessorControllerImplTest {
                 .andExpect(jsonPath("$[0].trashed_date", is(crmLogInternalResponse.getTrashedDate())));
 
         // Verify the crmLogAccessorService.getCrmLogs(Long userId) method is called once.
-        verify(crmLogAccessorService, times(1)).getCrmLogs(anyLong());
+        verify(crmLogAccessorService, times(1)).getCrmLogsByUserId(anyLong());
 
     }
 
@@ -155,7 +157,7 @@ class CrmLogInternalAccessorControllerImplTest {
     void getCrmLogById() throws Exception {
 
         // Mock crmLogAccessorService.getCrmLog(Long id) method to return CrmLogEntityDto.
-        when(crmLogAccessorService.getCrmLog(anyLong())).thenReturn(Optional.of(crmLogEntityDto));
+        when(crmLogAccessorService.getCrmLogById(anyLong())).thenReturn(Optional.of(crmLogEntityDto));
 
         // Send GET request.
         mockMvc.perform(get(ApiPath.CRM_LOG_INTERNAL_REST_PATH + "/{id}", 1L).accept(MediaType.APPLICATION_JSON))
@@ -183,7 +185,7 @@ class CrmLogInternalAccessorControllerImplTest {
                 .andExpect(jsonPath("$.trashed_date", is(crmLogInternalResponse.getTrashedDate())));
 
         // Verify the crmLogAccessorService.getCrmLog(Long id) method is called once.
-        verify(crmLogAccessorService, times(1)).getCrmLog(anyLong());
+        verify(crmLogAccessorService, times(1)).getCrmLogById(anyLong());
 
     }
 }

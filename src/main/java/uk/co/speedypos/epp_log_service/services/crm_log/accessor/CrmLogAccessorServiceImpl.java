@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.services.implementations.crm;
+package uk.co.speedypos.epp_log_service.services.crm_log.accessor;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.MappingException;
@@ -7,7 +7,6 @@ import uk.co.speedypos.epp_log_service.dtos.CrmLogEntityDto;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityFoundException;
 import uk.co.speedypos.epp_log_service.helpers.MapperHelper;
 import uk.co.speedypos.epp_log_service.repositories.CrmLogEntityRepository;
-import uk.co.speedypos.epp_log_service.services.interfaces.crm.CrmLogAccessorService;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +37,6 @@ public class CrmLogAccessorServiceImpl implements CrmLogAccessorService {
             // Map the founded list of CrmLogEntity to a list of CrmLogEntityDto and return it.
             return MapperHelper.mapList(foundedCrmLogEntityList, CrmLogEntityDto.class);
 
-
         }
 
         // Catch MappingException and throw EntityFoundException.
@@ -54,7 +52,7 @@ public class CrmLogAccessorServiceImpl implements CrmLogAccessorService {
     }
 
     @Override
-    public List<CrmLogEntityDto> getCrmLogs(Long userId) throws EntityFoundException {
+    public List<CrmLogEntityDto> getCrmLogsByUserId(Long userId) throws EntityFoundException {
 
         // Try to get all crm logs by user id.
         try {
@@ -80,7 +78,7 @@ public class CrmLogAccessorServiceImpl implements CrmLogAccessorService {
     }
 
     @Override
-    public Optional<CrmLogEntityDto> getCrmLog(Long id) throws EntityFoundException {
+    public Optional<CrmLogEntityDto> getCrmLogById(Long id) throws EntityFoundException {
 
         // Try to get crm log by id.
         try {
@@ -106,7 +104,7 @@ public class CrmLogAccessorServiceImpl implements CrmLogAccessorService {
     }
 
     @Override
-    public Optional<CrmLogEntityDto> getCrmLog(UUID uuid) throws EntityFoundException {
+    public Optional<CrmLogEntityDto> getCrmLogByUuid(UUID uuid) throws EntityFoundException {
 
         // Try to get crm log by uuid.
         try {

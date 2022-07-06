@@ -19,4 +19,16 @@ public interface CrmLogEntityRepository extends JpaRepository<CrmLogEntity, Long
     List<CrmLogEntity> findAllByUserId(Long userId);
 
     Optional<CrmLogEntity> findByUuid(UUID uuid);
+
+    /**
+     * Finds all crm logs by user id and log type.
+     * <p>
+     *     <b>Important:</b> Only when confirm that crm log is existent, it will be returned.
+     * </p>
+     *
+     * @param id (Long) of the crm log.
+     * @return uuid (UUID) of the crm log.
+     * @since 1.0
+     */
+    CrmLogEntity findByIdAndUuid(Long id, UUID uuid);
 }

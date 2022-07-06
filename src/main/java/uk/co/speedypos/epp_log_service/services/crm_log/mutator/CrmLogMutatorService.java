@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.services.interfaces.crm;
+package uk.co.speedypos.epp_log_service.services.crm_log.mutator;
 
 import uk.co.speedypos.epp_log_service.dtos.CrmLogEntityDto;
 import uk.co.speedypos.epp_log_service.entities.CrmLogEntity;

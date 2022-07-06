@@ -1,16 +1,15 @@
-package uk.co.speedypos.epp_log_service.controllers.implementations;
+package uk.co.speedypos.epp_log_service.controllers.mutator.internal;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import uk.co.speedypos.epp_log_service.controllers.interfaces.CrmLogInternalMutatorController;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityCreateException;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityUpdateException;
 import uk.co.speedypos.epp_log_service.models.request.internal.crm.CrmLogInternalCreateRequest;
 import uk.co.speedypos.epp_log_service.models.request.internal.crm.CrmLogInternalDeleteRequest;
 import uk.co.speedypos.epp_log_service.models.request.internal.crm.CrmLogInternalUpdateRequest;
 import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
-import uk.co.speedypos.epp_log_service.services.interfaces.crm.CrmLogMutatorService;
+import uk.co.speedypos.epp_log_service.services.crm_log.mutator.CrmLogMutatorService;
 
 /**
  * Implementation of {@link CrmLogInternalMutatorController} interface.

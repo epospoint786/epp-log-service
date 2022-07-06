@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.services.interfaces.crm;
+package uk.co.speedypos.epp_log_service.services.crm_log.accessor;
 
 import uk.co.speedypos.epp_log_service.dtos.CrmLogEntityDto;
 import uk.co.speedypos.epp_log_service.entities.CrmLogEntity;
@@ -33,7 +33,7 @@ public interface CrmLogAccessorService {
      * @return List of {@link CrmLogEntityDto} objects.
      * @throws EntityFoundException Thrown when any exception occurs during the retrieval list of crm user logs.
      */
-    List<CrmLogEntityDto> getCrmLogs(Long userId) throws EntityFoundException;
+    List<CrmLogEntityDto> getCrmLogsByUserId(Long userId) throws EntityFoundException;
 
     /**
      * Get a crm log by its id.
@@ -43,7 +43,7 @@ public interface CrmLogAccessorService {
      * @throws EntityFoundException Thrown when any exception occurs during the retrieval of a crm log.
      * @since 1.0
      */
-    Optional<CrmLogEntityDto> getCrmLog(Long id) throws EntityFoundException;
+    Optional<CrmLogEntityDto> getCrmLogById(Long id) throws EntityFoundException;
 
     /**
      * Get a crm log by its Uuid.
@@ -52,6 +52,6 @@ public interface CrmLogAccessorService {
      * @return The Optional of {@link CrmLogEntityDto} object.
      * @throws EntityFoundException Thrown when any exception occurs during the retrieval of a crm log.
      */
-    Optional<CrmLogEntityDto> getCrmLog(UUID uuid) throws EntityFoundException;
+    Optional<CrmLogEntityDto> getCrmLogByUuid(UUID uuid) throws EntityFoundException;
 
 }

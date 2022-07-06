@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.controllers.interfaces;
+package uk.co.speedypos.epp_log_service.controllers.accessor.internal;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

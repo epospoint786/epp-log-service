@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.controllers.interfaces;
+package uk.co.speedypos.epp_log_service.controllers.mutator.internal;
 
 
 import org.springframework.http.ResponseEntity;

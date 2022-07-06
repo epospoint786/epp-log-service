@@ -1,14 +1,13 @@
-package uk.co.speedypos.epp_log_service.controllers.implementations;
+package uk.co.speedypos.epp_log_service.controllers.accessor.internal;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.MappingException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import uk.co.speedypos.epp_log_service.controllers.interfaces.CrmLogInternalAccessorController;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityFoundException;
 import uk.co.speedypos.epp_log_service.helpers.MapperHelper;
 import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
-import uk.co.speedypos.epp_log_service.services.interfaces.crm.CrmLogAccessorService;
+import uk.co.speedypos.epp_log_service.services.crm_log.accessor.CrmLogAccessorService;
 
 import java.util.List;
 import java.util.Optional;
@@ -67,7 +66,7 @@ public class CrmLogInternalAccessorControllerImpl implements CrmLogInternalAcces
         try {
 
             // Call getCrmLogs(Long userId) method of CrmLogAccessorService to get all crm logs by user id.
-            var foundedCrmLogInternalResponseList = crmLogAccessorService.getCrmLogs(userId);
+            var foundedCrmLogInternalResponseList = crmLogAccessorService.getCrmLogsByUserId(userId);
 
             // Map the founded list of CrmLogEntityDto to a list of CrmLogInternalResponse.
             var crmLogInternalResponseList = MapperHelper.mapList(foundedCrmLogInternalResponseList, CrmLogInternalResponse.class);
@@ -100,7 +99,7 @@ public class CrmLogInternalAccessorControllerImpl implements CrmLogInternalAcces
         try {
 
             // Call getCrmLog(Long id) method of CrmLogAccessorService to get crm log by id.
-            var foundedCrmLogEntityDto = crmLogAccessorService.getCrmLog(id);
+            var foundedCrmLogEntityDto = crmLogAccessorService.getCrmLogById(id);
 
             // Map the founded CrmLogEntityDto to a CrmLogInternalResponse if foundedCrmLogEntityDto is not null.
             var crmLogInternalResponse = foundedCrmLogEntityDto.map(crmLogEntityDto -> MapperHelper.map(crmLogEntityDto, CrmLogInternalResponse.class));

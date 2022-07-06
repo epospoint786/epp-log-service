@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import uk.co.speedypos.epp_log_service.dtos.CrmLogEntityDto;
 import uk.co.speedypos.epp_log_service.enums.LogType;
-import uk.co.speedypos.epp_log_service.services.interfaces.crm.CrmLogMutatorService;
+import uk.co.speedypos.epp_log_service.services.crm_log.mutator.CrmLogMutatorService;
 
 import java.time.LocalDateTime;
 
