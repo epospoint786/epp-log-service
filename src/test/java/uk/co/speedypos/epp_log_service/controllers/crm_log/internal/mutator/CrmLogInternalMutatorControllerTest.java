@@ -71,7 +71,7 @@ class CrmLogInternalMutatorControllerTest {
         // Create new CrmLogInternalCreateRequest object with valid data.
         var crmLogInternalCreateRequest = new CrmLogInternalCreateRequest();
         crmLogInternalCreateRequest.setMessage("Test crm log service");
-        crmLogInternalCreateRequest.setLogType(LogType.getRandom());
+        crmLogInternalCreateRequest.setLogType(LogType.getRandom().name());
         crmLogInternalCreateRequest.setUserId(1000000002L);
 
         // Initialize crmLogEntityDto field.

@@ -2,7 +2,6 @@ package uk.co.speedypos.epp_log_service.entities;
 
 import lombok.Getter;
 import lombok.Setter;
-import uk.co.speedypos.epp_log_service.dtos.CrmLogEntityDto;
 import uk.co.speedypos.epp_log_service.enums.LogType;
 
 import javax.persistence.*;
@@ -20,37 +19,14 @@ import javax.persistence.*;
 @Getter
 public class CrmLogEntity extends BaseEntity {
 
-    @Column(name = "message", nullable = false, updatable = false)
+    @Column(name = "message", nullable = false, updatable = false, length = 1080)
     private String message;
 
-    @Column(name = "log_type", nullable = false, updatable = false)
+    @Column(name = "log_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private LogType logType;
 
-    @Column(name = "user_id", nullable = false, updatable = false)
+    @Column(name = "user_id", nullable = false)
     private Long userId;
-
-    /**
-     * Convert the CRM log entity to CRM log DTO.
-     * @return {@link CrmLogEntityDto} - CRM log DTO.
-     */
-    public CrmLogEntityDto toDto() {
-
-        // Create a new CRM log DTO.
-        var crmLogEntityDto = new CrmLogEntityDto();
-        crmLogEntityDto.setId(getId());
-        crmLogEntityDto.setUuid(getUuid());
-        crmLogEntityDto.setCreatedDate(getCreatedDate());
-        crmLogEntityDto.setLastModifiedDate(getLastModifiedDate());
-        crmLogEntityDto.setTotalModified(getTotalModified());
-        crmLogEntityDto.setIsTrashed(getIsTrashed());
-        crmLogEntityDto.setTrashedDate(getTrashedDate());
-        crmLogEntityDto.setMessage(message);
-        crmLogEntityDto.setLogType(logType);
-        crmLogEntityDto.setUserId(userId);
-
-        // Return the CRM log DTO.
-        return crmLogEntityDto;
-    }
 
 }
