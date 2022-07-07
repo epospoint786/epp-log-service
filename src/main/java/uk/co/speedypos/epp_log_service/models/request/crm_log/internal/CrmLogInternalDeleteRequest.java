@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import uk.co.speedypos.epp_log_service.enums.LogType;
 
+import java.util.UUID;
+
 /**
  * Request body for internal delete crm log request.
  *
@@ -16,7 +18,7 @@ import uk.co.speedypos.epp_log_service.enums.LogType;
 public class CrmLogInternalDeleteRequest {
 
     private Long id;
-    private String uuid;
+    private UUID uuid;
     private LogType logType;
     private Long userId;
 

@@ -135,7 +135,7 @@ class CrmLogInternalMutatorControllerTest {
         // Create new CrmLogInternalUpdateRequest object with valid data.
         var crmLogInternalUpdateRequest = new CrmLogInternalUpdateRequest();
         crmLogInternalUpdateRequest.setId(1000000000L);
-        crmLogInternalUpdateRequest.setUuid(UUID.randomUUID().toString());
+        crmLogInternalUpdateRequest.setUuid(UUID.randomUUID());
         crmLogInternalUpdateRequest.setMessage("Test crm log service");
         crmLogInternalUpdateRequest.setLogType(LogType.getRandom());
         crmLogInternalUpdateRequest.setUserId(1000000002L);
@@ -144,8 +144,6 @@ class CrmLogInternalMutatorControllerTest {
         // Map CrmLogInternalUpdateRequest object to CrmLogEntityDto object.
         crmLogEntityDto = MapperHelper.map(crmLogInternalUpdateRequest, CrmLogEntityDto.class);
 
-
-        crmLogEntityDto.setUuid(UUID.fromString(crmLogInternalUpdateRequest.getUuid()));
         crmLogEntityDto.setCreatedDate(LocalDateTime.now());
         crmLogEntityDto.setLastModifiedDate(LocalDateTime.now());
         crmLogEntityDto.setTotalModified(1L);
@@ -199,13 +197,12 @@ class CrmLogInternalMutatorControllerTest {
         // Create new CrmLogInternalDeleteRequest object with valid data.
         var crmLogInternalDeleteRequest = new CrmLogInternalDeleteRequest();
         crmLogInternalDeleteRequest.setId(1000000000L);
-        crmLogInternalDeleteRequest.setUuid(UUID.randomUUID().toString());
+        crmLogInternalDeleteRequest.setUuid(UUID.randomUUID());
 
         // Initialize crmLogEntityDto field.
         // Map CrmLogInternalDeleteRequest object to CrmLogEntityDto object.
         crmLogEntityDto = MapperHelper.map(crmLogInternalDeleteRequest, CrmLogEntityDto.class);
 
-        crmLogEntityDto.setUuid(UUID.fromString(crmLogInternalDeleteRequest.getUuid()));
         crmLogEntityDto.setCreatedDate(LocalDateTime.now());
         crmLogEntityDto.setLastModifiedDate(LocalDateTime.now());
         crmLogEntityDto.setTotalModified(1L);
