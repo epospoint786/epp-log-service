@@ -226,6 +226,13 @@ class CrmLogInternalMutatorControllerTest {
         // Map CrmLogEntityDto object to CrmLogInternalResponse object.
         crmLogInternalResponse = MapperHelper.map(crmLogEntityDto, CrmLogInternalResponse.class);
 
+
+        // Mock crmLogAccessorService.getCrmLogById() method.
+        when(crmLogAccessorService.getCrmLogById(anyLong())).thenReturn(Optional.of(crmLogEntityDto));
+
+        // Mock crmLogAccessorService.getCrmLogByUuid() method.
+        when(crmLogAccessorService.getCrmLogByUuid(any(UUID.class))).thenReturn(Optional.of(crmLogEntityDto));
+
         // Mock the crmLogMutatorService.deleteCrmLog() method.
         when(crmLogMutatorService.deleteCrmLog(any(CrmLogEntityDto.class))).thenReturn(crmLogEntityDto);
 

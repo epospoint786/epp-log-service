@@ -65,7 +65,7 @@ public class CrmLogInternalAccessorControllerImpl implements CrmLogInternalAcces
         // Try to get all crm logs by user id.
         try {
 
-            // Call getCrmLogs(Long userId) method of CrmLogAccessorService to get all crm logs by user id.
+            // Call getCrmLogsByUserId method of CrmLogAccessorService to get all crm logs by user id.
             var foundedCrmLogInternalResponseList = crmLogAccessorService.getCrmLogsByUserId(userId);
 
             // Map the founded list of CrmLogEntityDto to a list of CrmLogInternalResponse.
@@ -98,7 +98,7 @@ public class CrmLogInternalAccessorControllerImpl implements CrmLogInternalAcces
         // Try to get crm log by id.
         try {
 
-            // Call getCrmLog(Long id) method of CrmLogAccessorService to get crm log by id.
+            // Call getCrmLogById() method of CrmLogAccessorService to get crm log by id.
             var foundedCrmLogEntityDto = crmLogAccessorService.getCrmLogById(id);
 
             // Map the founded CrmLogEntityDto to a CrmLogInternalResponse if foundedCrmLogEntityDto is not null.
@@ -110,7 +110,7 @@ public class CrmLogInternalAccessorControllerImpl implements CrmLogInternalAcces
 
         // Catch MappingException and throw EntityFoundException.
         catch (MappingException mappingException) {
-            throw new EntityFoundException("getCrmLog(Long id) method of the CrmLogInternalAccessorControllerImpl class", "MappingException thrown while mapping the CrmLogEntityDto to a CrmLogInternalResponse", mappingException.getMessage());
+            throw new EntityFoundException("getCrmLogById() method of the CrmLogInternalAccessorControllerImpl class", "MappingException thrown while mapping the CrmLogEntityDto to a CrmLogInternalResponse", mappingException.getMessage());
         }
 
         // Rethrow EntityFoundException.
@@ -120,7 +120,7 @@ public class CrmLogInternalAccessorControllerImpl implements CrmLogInternalAcces
 
         // Catch Exception and throw EntityFoundException.
         catch (Exception exception) {
-            throw new EntityFoundException("getCrmLog(Long id) method of the CrmLogInternalAccessorControllerImpl class", "Exception thrown while retrieving the CrmLogEntityDto", exception.getMessage());
+            throw new EntityFoundException("getCrmLogById() method of the CrmLogInternalAccessorControllerImpl class", "Exception thrown while retrieving the CrmLogEntityDto", exception.getMessage());
         }
 
     }

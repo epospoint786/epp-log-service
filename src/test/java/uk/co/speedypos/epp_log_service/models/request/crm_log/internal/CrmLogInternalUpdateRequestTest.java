@@ -1,6 +1,5 @@
 package uk.co.speedypos.epp_log_service.models.request.crm_log.internal;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,7 +34,6 @@ import static org.mockito.Mockito.when;
 @WebMvcTest(CrmLogInternalUpdateRequest.class)
 @AutoConfigureMockMvc(addFilters = false)
 @DisplayName("Tests for CrmLogInternalUpdateRequest model all fields validation constraints")
-@Slf4j
 class CrmLogInternalUpdateRequestTest {
 
     @MockBean
@@ -46,8 +44,6 @@ class CrmLogInternalUpdateRequestTest {
     private Validator validator;
 
     private CrmLogInternalUpdateRequest crmLogInternalUpdateRequest;
-
-    private CrmLogEntityDto crmLogEntityDto;
 
     private Set<ConstraintViolation<CrmLogInternalUpdateRequest>> violations;
 
@@ -63,7 +59,7 @@ class CrmLogInternalUpdateRequestTest {
         crmLogInternalUpdateRequest.setUserId(100000001L);
 
         // Initialize crmLogEntityDto class field.
-        CrmLogEntityDto crmLogEntityDto = new CrmLogEntityDto();
+        var crmLogEntityDto = new CrmLogEntityDto();
         crmLogEntityDto.setMessage(crmLogInternalUpdateRequest.getMessage());
         crmLogEntityDto.setLogType(LogType.valueOf(crmLogInternalUpdateRequest.getLogType()));
         crmLogEntityDto.setUserId(crmLogInternalUpdateRequest.getUserId());
@@ -199,8 +195,6 @@ class CrmLogInternalUpdateRequestTest {
 
         // Validate crmLogInternalUpdateRequest class field and get violations.
         violations = validator.validate(crmLogInternalUpdateRequest);
-
-        log.info("violations: {}", violations);
 
         // Assert that violations size is 1.
         assertEquals(1, violations.size());
