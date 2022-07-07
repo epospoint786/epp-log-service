@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.controllers.accessor.internal;
+package uk.co.speedypos.epp_log_service.controllers.crm_log.internal.accessor;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.MappingException;
@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityFoundException;
 import uk.co.speedypos.epp_log_service.helpers.MapperHelper;
-import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
+import uk.co.speedypos.epp_log_service.models.response.crm_log.internal.CrmLogInternalResponse;
 import uk.co.speedypos.epp_log_service.services.crm_log.accessor.CrmLogAccessorService;
 
 import java.util.List;

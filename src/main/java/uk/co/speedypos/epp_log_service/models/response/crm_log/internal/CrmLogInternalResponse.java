@@ -1,11 +1,10 @@
-package uk.co.speedypos.epp_log_service.models.response.internal.crm;
+package uk.co.speedypos.epp_log_service.models.response.crm_log.internal;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.Setter;
 import uk.co.speedypos.epp_log_service.enums.LogType;
-import uk.co.speedypos.epp_log_service.models.response.internal.BaseInternalResponse;
 
 /**
  *

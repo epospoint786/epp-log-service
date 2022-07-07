@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.models.response.internal;
+package uk.co.speedypos.epp_log_service.models.response.crm_log.internal;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

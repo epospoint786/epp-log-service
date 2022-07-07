@@ -1,4 +1,5 @@
-package uk.co.speedypos.epp_log_service.controllers.crm_log.accessor.internal;
+package uk.co.speedypos.epp_log_service.controllers.crm_log.internal.accessor;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,12 +11,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.co.speedypos.epp_log_service.consts.ApiPath;
-import uk.co.speedypos.epp_log_service.controllers.accessor.internal.CrmLogInternalAccessorController;
-import uk.co.speedypos.epp_log_service.controllers.accessor.internal.CrmLogInternalAccessorControllerImpl;
 import uk.co.speedypos.epp_log_service.dtos.CrmLogEntityDto;
 import uk.co.speedypos.epp_log_service.enums.LogType;
 import uk.co.speedypos.epp_log_service.helpers.MapperHelper;
-import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
+import uk.co.speedypos.epp_log_service.models.response.crm_log.internal.CrmLogInternalResponse;
 import uk.co.speedypos.epp_log_service.services.crm_log.accessor.CrmLogAccessorService;
 
 import java.time.LocalDateTime;
@@ -77,7 +76,7 @@ class CrmLogInternalAccessorControllerTest {
     }
 
     @Test
-    @DisplayName("Should return list of CrmLogInternalResponse with response body with status code 200 when GET request is sent")
+    @DisplayName("Should return list of CrmLogInternalResponse response JSON body with status code 200 when GET request is sent")
     void getCrmLogs() throws Exception {
 
         // Mock crmLogAccessorService.getCrmLogs() method to return list of CrmLogEntityDto.
@@ -115,7 +114,7 @@ class CrmLogInternalAccessorControllerTest {
     }
 
     @Test
-    @DisplayName("Should return list of CrmLogInternalResponse with response body with status code 200 when GET request is sent to /user/{userId}")
+    @DisplayName("Should return list of CrmLogInternalResponse response JSON body with status code 200 when GET request is sent to /user/{userId}")
     void getCrmLogsByUserId() throws Exception {
 
         // Mock crmLogAccessorService.getCrmLogs(Long userId) method to return list of CrmLogEntityDto.
@@ -153,7 +152,7 @@ class CrmLogInternalAccessorControllerTest {
     }
 
     @Test
-    @DisplayName("Should return CrmLogInternalResponse with response body with status code 200 when GET request is sent")
+    @DisplayName("Should return CrmLogInternalResponse response JSON body with status code 200 when GET request is sent")
     void getCrmLogById() throws Exception {
 
         // Mock crmLogAccessorService.getCrmLog(Long id) method to return CrmLogEntityDto.

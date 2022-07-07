@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.controllers.accessor.internal;
+package uk.co.speedypos.epp_log_service.controllers.crm_log.internal.accessor;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uk.co.speedypos.epp_log_service.consts.ApiPath;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityFoundException;
-import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
+import uk.co.speedypos.epp_log_service.models.response.crm_log.internal.CrmLogInternalResponse;
 
 import java.util.List;
 import java.util.Optional;

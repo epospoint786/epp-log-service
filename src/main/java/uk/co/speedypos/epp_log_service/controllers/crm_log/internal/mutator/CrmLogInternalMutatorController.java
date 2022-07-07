@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.controllers.mutator.internal;
+package uk.co.speedypos.epp_log_service.controllers.crm_log.internal.mutator;
 
 
 import org.springframework.http.ResponseEntity;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import uk.co.speedypos.epp_log_service.consts.ApiPath;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityCreateException;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityUpdateException;
-import uk.co.speedypos.epp_log_service.models.request.internal.crm.CrmLogInternalCreateRequest;
-import uk.co.speedypos.epp_log_service.models.request.internal.crm.CrmLogInternalDeleteRequest;
-import uk.co.speedypos.epp_log_service.models.request.internal.crm.CrmLogInternalUpdateRequest;
-import uk.co.speedypos.epp_log_service.models.response.internal.crm.CrmLogInternalResponse;
+import uk.co.speedypos.epp_log_service.models.request.crm_log.internal.CrmLogInternalCreateRequest;
+import uk.co.speedypos.epp_log_service.models.request.crm_log.internal.CrmLogInternalDeleteRequest;
+import uk.co.speedypos.epp_log_service.models.request.crm_log.internal.CrmLogInternalUpdateRequest;
+import uk.co.speedypos.epp_log_service.models.response.crm_log.internal.CrmLogInternalResponse;
 
 import javax.validation.Valid;
 

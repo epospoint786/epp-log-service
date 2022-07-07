@@ -1,4 +1,4 @@
-package uk.co.speedypos.epp_log_service.models.request.internal.crm;
+package uk.co.speedypos.epp_log_service.models.request.crm_log.internal;
 
 import lombok.Getter;
 import lombok.Setter;
