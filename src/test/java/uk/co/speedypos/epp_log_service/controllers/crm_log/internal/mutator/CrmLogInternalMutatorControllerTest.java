@@ -2,7 +2,6 @@ package uk.co.speedypos.epp_log_service.controllers.crm_log.internal.mutator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,12 @@ import uk.co.speedypos.epp_log_service.models.request.crm_log.internal.CrmLogInt
 import uk.co.speedypos.epp_log_service.models.request.crm_log.internal.CrmLogInternalDeleteRequest;
 import uk.co.speedypos.epp_log_service.models.request.crm_log.internal.CrmLogInternalUpdateRequest;
 import uk.co.speedypos.epp_log_service.models.response.crm_log.internal.CrmLogInternalResponse;
+import uk.co.speedypos.epp_log_service.services.crm_log.accessor.CrmLogAccessorService;
 import uk.co.speedypos.epp_log_service.services.crm_log.mutator.CrmLogMutatorService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.hamcrest.Matchers.is;
@@ -42,8 +43,11 @@ import static uk.co.speedypos.epp_log_service.consts.Regex.LOCAL_DATE_TIME_RESPO
  */
 @WebMvcTest(CrmLogInternalMutatorController.class)
 @AutoConfigureMockMvc(addFilters = false)
-@DisplayName("Test crm log internal accessor endpoints" + ApiPath.CRM_LOG_INTERNAL_REST_PATH)
+@DisplayName("Test crm log internal mutator endpoints" + ApiPath.CRM_LOG_INTERNAL_REST_PATH)
 class CrmLogInternalMutatorControllerTest {
+
+    @MockBean
+    private CrmLogAccessorService crmLogAccessorService;
 
     @MockBean
     private CrmLogMutatorService crmLogMutatorService;
@@ -59,10 +63,6 @@ class CrmLogInternalMutatorControllerTest {
     private CrmLogEntityDto crmLogEntityDto;
 
     private CrmLogInternalResponse crmLogInternalResponse;
-
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     @DisplayName("Should create email address entity when POST request is sent with CrmLogInternalCreateRequest JSON object as request body and return CrmLogInternalResponse JSON object as response body with status code 201")
@@ -137,22 +137,31 @@ class CrmLogInternalMutatorControllerTest {
         crmLogInternalUpdateRequest.setId(1000000000L);
         crmLogInternalUpdateRequest.setUuid(UUID.randomUUID());
         crmLogInternalUpdateRequest.setMessage("Test crm log service");
-        crmLogInternalUpdateRequest.setLogType(LogType.getRandom());
+        crmLogInternalUpdateRequest.setLogType(LogType.getRandom().name());
         crmLogInternalUpdateRequest.setUserId(1000000002L);
 
         // Initialize crmLogEntityDto field.
-        // Map CrmLogInternalUpdateRequest object to CrmLogEntityDto object.
-        crmLogEntityDto = MapperHelper.map(crmLogInternalUpdateRequest, CrmLogEntityDto.class);
-
+        crmLogEntityDto = new CrmLogEntityDto();
+        crmLogEntityDto.setMessage(crmLogInternalUpdateRequest.getMessage());
+        crmLogEntityDto.setLogType(LogType.valueOf(crmLogInternalUpdateRequest.getLogType()));
+        crmLogEntityDto.setUserId(crmLogInternalUpdateRequest.getUserId());
+        crmLogEntityDto.setId(crmLogInternalUpdateRequest.getId());
+        crmLogEntityDto.setUuid(crmLogInternalUpdateRequest.getUuid());
         crmLogEntityDto.setCreatedDate(LocalDateTime.now());
         crmLogEntityDto.setLastModifiedDate(LocalDateTime.now());
-        crmLogEntityDto.setTotalModified(1L);
+        crmLogEntityDto.setTotalModified(0L);
         crmLogEntityDto.setIsTrashed(true);
         crmLogEntityDto.setTrashedDate(LocalDateTime.now());
 
         // Initialize crmLogInternalResponse field.
         // Map CrmLogEntityDto object to CrmLogInternalResponse object.
         crmLogInternalResponse = MapperHelper.map(crmLogEntityDto, CrmLogInternalResponse.class);
+
+        // Mock crmLogAccessorService.getCrmLogById() method.
+        when(crmLogAccessorService.getCrmLogById(anyLong())).thenReturn(Optional.of(crmLogEntityDto));
+
+        // Mock crmLogAccessorService.getCrmLogByUuid() method.
+        when(crmLogAccessorService.getCrmLogByUuid(any(UUID.class))).thenReturn(Optional.of(crmLogEntityDto));
 
         // Mock the crmLogMutatorService.updateCrmLog() method.
         when(crmLogMutatorService.updateCrmLog(any(CrmLogEntityDto.class))).thenReturn(crmLogEntityDto);

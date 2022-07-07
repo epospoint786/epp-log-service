@@ -1,6 +1,5 @@
 package uk.co.speedypos.epp_log_service.models.request.crm_log.internal;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,13 +14,18 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Test for {@link CrmLogInternalCreateRequest} all fields validation constraints.
+ *
+ * @author Supto Purakayasto
+ * @version 1.0
+ * @since 1.0
+ */
 @WebMvcTest(CrmLogInternalCreateRequest.class)
 @AutoConfigureMockMvc(addFilters = false)
 @DisplayName("Tests for CrmLogInternalCreateRequest model all fields validation constraints")
-@Slf4j
 class CrmLogInternalCreateRequestTest {
 
     @Autowired
@@ -40,10 +44,6 @@ class CrmLogInternalCreateRequestTest {
         crmLogInternalCreateRequest.setMessage("Test crm log message");
         crmLogInternalCreateRequest.setLogType(LogType.getRandom().name());
         crmLogInternalCreateRequest.setUserId(100000000L);
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test
@@ -68,9 +68,6 @@ class CrmLogInternalCreateRequestTest {
 
         // Validate crmLogInternalCreateRequest class field and get violations.
         violations = validator.validate(crmLogInternalCreateRequest);
-
-        // Assert that violations is not empty.
-        assertFalse(violations.isEmpty());
 
         // Assert that violations contains message field validation constraint.
         assertTrue(violations.stream().anyMatch(violation -> violation.getPropertyPath().toString().equals("message")));
@@ -168,6 +165,15 @@ class CrmLogInternalCreateRequestTest {
 
         // Assert that violations contains userId field validation constraint message.
         assertTrue(violations.stream().anyMatch(violation -> violation.getMessage().equals("User id must be greater than or equal to 1000000000!")));
+
+    }
+
+    @AfterEach
+    void tearDown() {
+
+        // Reset class field.
+        crmLogInternalCreateRequest = null;
+        violations = null;
 
     }
 }
