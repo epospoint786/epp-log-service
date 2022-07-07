@@ -41,12 +41,12 @@ public class CrmLogAccessorServiceImpl implements CrmLogAccessorService {
 
         // Catch MappingException and throw EntityFoundException.
         catch (MappingException mappingException) {
-            throw new EntityFoundException("getCrmLogs method of the CrmLogAccessorServiceImpl class", "MappingException thrown while mapping the list of CrmLogEntity to a list of CrmLogEntityDto", mappingException.getMessage());
+            throw new EntityFoundException("getCrmLogs() method of the CrmLogAccessorServiceImpl class", "MappingException thrown while mapping the list of CrmLogEntity to a list of CrmLogEntityDto", mappingException.getMessage());
         }
 
         // Catch Exception and throw EntityFoundException.
         catch (Exception exception) {
-            throw new EntityFoundException("getCrmLogs method of the CrmLogAccessorServiceImpl class", "Exception thrown while retrieving the list of CrmLogEntity", exception.getMessage());
+            throw new EntityFoundException("getCrmLogs() method of the CrmLogAccessorServiceImpl class", "Exception thrown while retrieving the list of CrmLogEntity", exception.getMessage());
         }
 
     }
@@ -67,12 +67,12 @@ public class CrmLogAccessorServiceImpl implements CrmLogAccessorService {
 
         // Catch MappingException and throw EntityFoundException.
         catch (MappingException mappingException) {
-            throw new EntityFoundException("getCrmLogs(Long userId) method of the CrmLogAccessorServiceImpl class", "MappingException thrown while mapping the list of CrmLogEntity to a list of CrmLogEntityDto", mappingException.getMessage());
+            throw new EntityFoundException("getCrmLogsByUserId() method of the CrmLogAccessorServiceImpl class", "MappingException thrown while mapping the list of CrmLogEntity to a list of CrmLogEntityDto", mappingException.getMessage());
         }
 
         // Catch Exception and throw EntityFoundException.
         catch (Exception exception) {
-            throw new EntityFoundException("getCrmLogs(Long userId) method of the CrmLogAccessorServiceImpl class", "Exception thrown while retrieving the list of CrmLogEntity", exception.getMessage());
+            throw new EntityFoundException("getCrmLogsByUserId() method of the CrmLogAccessorServiceImpl class", "Exception thrown while retrieving the list of CrmLogEntity", exception.getMessage());
         }
 
     }

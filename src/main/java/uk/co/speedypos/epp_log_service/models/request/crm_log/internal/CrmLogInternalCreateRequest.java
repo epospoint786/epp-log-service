@@ -1,5 +1,7 @@
 package uk.co.speedypos.epp_log_service.models.request.crm_log.internal;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -19,6 +21,7 @@ import javax.validation.constraints.NotNull;
  */
 @Setter
 @Getter
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class CrmLogInternalCreateRequest {
 
     @NotEmpty(message = "Message is required and cannot be empty or null!")

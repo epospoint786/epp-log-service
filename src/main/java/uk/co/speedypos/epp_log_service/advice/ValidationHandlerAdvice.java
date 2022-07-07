@@ -1,5 +1,6 @@
 package uk.co.speedypos.epp_log_service.advice;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,15 +21,16 @@ import java.util.Map;
  * @since 1.0
  */
 @ControllerAdvice
+@Slf4j
 public class ValidationHandlerAdvice extends ResponseEntityExceptionHandler {
 
     /**
      * This method is used to handle MethodArgumentNotValidException thrown by the application.
      *
-     * @param ex MethodArgumentNotValidException
-     * @param headers   HttpHeaders
-     * @param status    HttpStatus
-     * @param request   WebRequest
+     * @param ex      MethodArgumentNotValidException
+     * @param headers HttpHeaders
+     * @param status  HttpStatus
+     * @param request WebRequest
      * @return ResponseEntity with HttpStatus.BAD_REQUEST and error message
      * @since 1.0
      */
@@ -36,10 +38,9 @@ public class ValidationHandlerAdvice extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
         Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult()
-                 .getFieldErrors()
-                 .forEach(error -> errors.put(StringHelper.convertCamelCaseToSnakeCase(error.getField()),
-                         error.getDefaultMessage()));
+
+        ex.getBindingResult().getFieldErrors().forEach(error ->
+                errors.put(StringHelper.convertCamelCaseToSnakeCase(error.getField()), error.getDefaultMessage()));
 
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 

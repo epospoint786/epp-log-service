@@ -66,7 +66,7 @@ class CrmLogMutatorServiceTest {
     }
 
     @Test
-    @DisplayName("Should create crm log entity and return CrmLogEntityDto object when createCrmLogEntity() is called")
+    @DisplayName("Should create crm log entity and return CrmLogEntityDto object when createCrmLog() is called")
     void createCrmLog() {
 
         // Mock crmLogEntityRepository.save() method to return crmLogEntity.
@@ -96,7 +96,7 @@ class CrmLogMutatorServiceTest {
     }
 
     @Test
-    @DisplayName("Should update crm log entity and return CrmLogEntityDto object when updateCrmLogEntity() is called")
+    @DisplayName("Should update crm log entity and return CrmLogEntityDto object when updateCrmLog() is called")
     void updateCrmLog() {
 
         // Mock crmLogEntityRepository.save() method to return crmLogEntity.
@@ -128,7 +128,7 @@ class CrmLogMutatorServiceTest {
     }
 
     @Test
-    @DisplayName("Should delete crm log entity and return CrmLogEntityDto object when deleteCrmLogEntity() is called")
+    @DisplayName("Should delete crm log entity and return CrmLogEntityDto object when deleteCrmLog() is called")
     void deleteCrmLog() {
 
         // Mock crmLogEntityRepository.findByIdAndUuid() method to return crmLogEntity.
