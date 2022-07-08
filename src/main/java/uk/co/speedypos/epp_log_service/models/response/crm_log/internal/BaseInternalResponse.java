@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import static uk.co.speedypos.epp_log_service.consts.Regex.LOCAL_DATE_TIME_RESPONSE_PATTERN;
+import static uk.co.speedypos.epp_log_service.consts.DateTimeRegex.LOCAL_DATE_TIME_RESPONSE_PATTERN;
 
 /**
  * Base response model for all UI models.
