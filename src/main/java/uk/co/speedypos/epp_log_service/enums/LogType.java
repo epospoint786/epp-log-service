@@ -14,8 +14,9 @@ package uk.co.speedypos.epp_log_service.enums;
 public enum LogType {
 
     SUCCESS,
-    ERROR,
-    INFO;
+    INFO,
+    WARNING,
+    ERROR;
 
     /**
      * Get random LogType.
