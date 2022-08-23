@@ -4,4 +4,4 @@ spring:
   cloud:
     config:
       profile: "dev"
-      name: "epp-log-service"
+      name: "${spring.application.name}"
