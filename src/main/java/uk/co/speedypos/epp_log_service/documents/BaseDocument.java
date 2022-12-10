@@ -8,7 +8,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 /**
- * This class provides the common fields for all documents.
+ * This class provides the common fields for all entities.
  *
  * <p>
  *  <strong>Important:</strong> This is shared by all microservices.
