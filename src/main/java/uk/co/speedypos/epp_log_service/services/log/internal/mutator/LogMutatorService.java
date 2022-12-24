@@ -6,7 +6,7 @@ import uk.co.speedypos.epp_log_service.documents.LogDocument;
 import uk.co.speedypos.epp_log_service.exceptions.entities.EntityCreateException;
 
 /**
- * Core interface for {@link LogDocument} internal mutation operations business logic.
+ * Core interface for {@link LogDocument} external mutation operations business logic.
  *
  * @author Supto Purakayasto
  * @version 1.0.0

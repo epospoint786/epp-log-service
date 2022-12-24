@@ -6,7 +6,7 @@ import uk.co.speedypos.epp_log_service.enums.LogType;
 import javax.validation.constraints.NotNull;
 
 /**
- * This class is used to handle Validation layer for log internal create http request.
+ * This class is used to handle Validation layer for log external create http request.
  *
  * @author Supto Purakayasto
  * @version 1.0.0

@@ -13,7 +13,7 @@ import static uk.co.speedypos.epp_log_service.consts.ApiPath.V1_LOG_INTERNAL_HTT
 import static uk.co.speedypos.epp_log_service.consts.RabbitMQ.EPP_LOGS_LOG_QUEUE;
 
 /**
- * Core interface for handling log internal http mutating operations.
+ * Core interface for handling log external http mutating operations.
  *
  * @author Supto Purakayasto
  * @version 1.0.0

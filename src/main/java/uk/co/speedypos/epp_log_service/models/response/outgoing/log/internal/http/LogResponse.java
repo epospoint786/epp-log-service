@@ -6,7 +6,7 @@ import uk.co.speedypos.epp_log_service.enums.LogType;
 import uk.co.speedypos.epp_log_service.models.response.outgoing.base.internal.http.BaseResponse;
 
 /**
- * This class is used to provide log internal http response.
+ * This class is used to provide log external http response.
  *
  * @author Supto Purakayasto
  * @version 1.0.0

@@ -30,7 +30,7 @@ import static uk.co.speedypos.epp_log_service.helpers.DateTimeHelper.getInstantN
  * @since 1.0.0
  */
 @SpringBootTest(classes = LogMutatorService.class)
-@DisplayName("Test log internal accessor service layer business logic")
+@DisplayName("Test log external accessor service layer business logic")
 class LogMutatorServiceUnitTest {
 
     @MockBean

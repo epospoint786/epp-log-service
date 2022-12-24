@@ -19,7 +19,7 @@ public class ValidationErrorAdvice {
     public Mono<ResponseEntity<Object>> handleValidationError(WebExchangeBindException ex, ServerHttpRequest serverHttpRequest) {
         Map<String, String> errors = new HashMap<>();
 
-        if(serverHttpRequest.getURI().toString().contains("internal")) {
+        if(serverHttpRequest.getURI().toString().contains("external")) {
             ex.getBindingResult().getFieldErrors().forEach(error ->
                     errors.put(error.getField(), error.getDefaultMessage()));
         } else {

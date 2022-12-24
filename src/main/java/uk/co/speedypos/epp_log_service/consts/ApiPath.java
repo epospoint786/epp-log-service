@@ -11,5 +11,5 @@ public class ApiPath {
 
     public static final String API_PATH_V1 = "/api/v0.0.1";
 
-    public static final String V1_LOG_INTERNAL_HTTP_MUTATOR = API_PATH_V1 + "/log/internal/http/mutator";
+    public static final String V1_LOG_INTERNAL_HTTP_MUTATOR = API_PATH_V1 + "/log/external/http/mutator";
 }

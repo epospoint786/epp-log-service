@@ -28,7 +28,7 @@ import static uk.co.speedypos.epp_log_service.helpers.DateTimeHelper.getInstantN
 
 @WebFluxTest(controllers = LogMutatorController.class, excludeAutoConfiguration = ReactiveSecurityAutoConfiguration.class)
 @AutoConfigureWebTestClient
-@DisplayName("Test log internal http accessor controller layer")
+@DisplayName("Test log external http accessor controller layer")
 class LogMutatorControllerUnitTest {
 
     @MockBean

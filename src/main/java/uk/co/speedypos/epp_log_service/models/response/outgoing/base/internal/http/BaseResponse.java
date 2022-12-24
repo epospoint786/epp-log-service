@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 /**
- * This class used to provide base response for internal http request.
+ * This class used to provide base response for external http request.
  *
  * @author Supto Purakayasto
  * @version 1.0.0
